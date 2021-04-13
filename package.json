@@ -1,0 +1,24 @@
+{
+  "name": "scss-guide",
+  "version": "1.0.0",
+  "description": "scss/sass演示代码",
+  "author": "Quintion <QuintionTang@gmail.com>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scss",
+    "sass",
+    "css"
+  ],
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "sass-lint": "^1.13.1",
+    "gulp-sass": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuintionTang/scss-guide.git"
+  },
+  "license": "MIT"
+}

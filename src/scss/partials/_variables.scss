@@ -1,0 +1,49 @@
+// 此文件用于定义常用的变量
+/*!
+    author:Quintion <QuintionTang@gmail.com>
+    website:https://www.devpoint.cn
+*/
+$font-family-base: "Microsoft YaHei", "微软雅黑", "pingfang sc", "宋体", Arial,
+    Helvetica, sans-serif;
+$font-base-size: 14px;
+$color: #444;
+$max-width: 1440px;
+$min-width: 96%;
+
+$image-path: "./assets/images/";
+
+// 颜色定义
+$blue: #007bff;
+$white: #fff;
+$black: #000000;
+
+// 阴影定义
+$shadow: 0 0.5rem 1rem rgba($black, 0.15);
+
+// 按钮定义
+$btn-font-weight: 500;
+$btn-background-color: $blue;
+$btn-color: $white;
+$btn-border: 1px solid rgba($btn-background-color, 0.8);
+
+// card定义
+$card-bg: $white;
+$card-border-width: 1px;
+$card-border-color: rgba($black, 0.125);
+$card-border-radius: 2px;
+
+// Grid定义
+$container-padding-x: 2rem;
+$container-padding-x-sm: 1rem;
+
+$grid-breakpoints: ();
+$grid-breakpoints: map-merge(
+    (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+    ),
+    $grid-breakpoints
+);

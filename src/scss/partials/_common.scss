@@ -1,0 +1,165 @@
+body {
+    font-family: $font-family-base;
+    font-size: $font-base-size;
+    color: $color;
+}
+.container {
+    max-width: $max-width;
+    min-width: $min-width;
+    margin: 0px auto;
+    ul,
+    li {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+%card-share {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: $card-bg;
+    background-clip: border-box;
+    border: $card-border-width solid $card-border-color;
+    border-radius: $card-border-radius;
+}
+.button {
+    display: inline-block;
+    font-weight: $btn-font-weight;
+    color: $btn-color;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: $btn-background-color;
+    border: $btn-border;
+}
+.button-noborder {
+    @extend .button; // 继承.button的样式
+    border: none;
+    &:hover {
+        font-size: 14px;
+    }
+}
+
+.card {
+    @extend %card-share;
+    @include box-shadow($shadow);
+}
+
+.sidebar {
+    width: $max-width * 0.8 - 100px;
+    height: $max-width % 75;
+}
+img {
+    cursor: zoom + -in;
+    @if ($max-width>=1440px and $min-width>90%) {
+        max-width: 95%;
+    } @else if ($min-width<100%) {
+        min-width: 100%;
+    }
+}
+
+a {
+    display: inline-block;
+    color: $black;
+    &:hover {
+        text-decoration: none;
+    }
+    &::before {
+        content: "";
+    }
+    &.menu {
+        margin: 0px 10px;
+        color: $blue;
+        &-item {
+            margin-left: 20px;
+        }
+    }
+}
+.picture-bg {
+    background: url("#{$image-path}main.jpg") center no-repeat;
+}
+.fullbox {
+    @if ($max-width>=1440px and $min-width>90%) {
+        max-width: 95%;
+    } @else if ($min-width<100%) {
+        min-width: 100%;
+    }
+}
+p {
+    @if 1 + 1 == 2 {
+        border: 1px solid;
+    }
+    @if 5 < 3 {
+        border: 2px dotted;
+    }
+    @if null {
+        border: 3px double;
+    }
+}
+ul {
+    &.sidenav {
+        $nav-count: 5;
+        $nav-colors: #ff0001, #ff0002, #ff0003, #ff0004, #ff0005;
+        @for $i from 1 through $nav-count {
+            .item-#{$i} {
+                background-color: nth($nav-colors, $i); // 数组的使用
+            }
+        }
+    }
+}
+
+@each $icon in excel, ppt, pdf, doc-around {
+    .icon-#{$icon} {
+        background-image: url("#{$image-path}#{$icon}.png");
+    }
+}
+
+$number: 6;
+@while $number > 0 {
+    .row-#{$number} {
+        width: 2em * $number;
+    }
+    $number: $number - 2;
+}
+
+$sizes: ();
+$sizes: map-merge(
+    (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+    ),
+    $sizes
+);
+
+@each $size, $length in $sizes {
+    .size-#{$size} {
+        width: $length !important;
+        font-size: if($size % 50 == 0, "14px", "28px");
+    }
+}
+
+.main-bg {
+    background: mix(red, yellow, 35%);
+}
+
+.container-p-x {
+    padding-right: $container-padding-x-sm !important;
+    padding-left: $container-padding-x-sm !important;
+
+    @include media-breakpoint-up(lg) {
+        padding-right: $container-padding-x !important;
+        padding-left: $container-padding-x !important;
+    }
+    @include media-breakpoint-up(xl) {
+        padding-right: $container-padding-x * 2 !important;
+        padding-left: $container-padding-x * 2 !important;
+    }
+}
+
+.text-expanded {
+    letter-spacing: ((1 / (strip-unit($font-base-size) * 16)) * 1em) !important;
+}

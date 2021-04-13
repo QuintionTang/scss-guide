@@ -1,0 +1,9 @@
+// 获取断点指定名称的断点，如不存在返回空。默认的断点为$grid-breakpoints
+@function get-breakpoint($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+// 去掉变量的单位
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
